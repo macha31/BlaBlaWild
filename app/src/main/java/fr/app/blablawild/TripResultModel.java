@@ -11,9 +11,6 @@ public class TripResultModel {
     public Date mDate;
     public int mPrix;
 
-    public TripResultModel(){
-
-    }
 
     public TripResultModel(String mPrenom, Date mDate,int mPrix){
         this.mPrenom = mPrenom;

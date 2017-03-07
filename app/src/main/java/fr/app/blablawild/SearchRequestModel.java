@@ -24,13 +24,15 @@ public class SearchRequestModel implements Parcelable {
         this.mDate = mDAte;
     }
 
-     public String getmVilleDepart() {
+    public String getmVilleDepart() {
          return this.mVilleDepart;
-     }
-     public String getmVilleDestination() {
+    }
+
+    public String getmVilleDestination() {
          return this.mVilleDestination;
      }
-     public String getmDate() {
+
+    public String getmDate() {
          return this.mDate;
      }
 

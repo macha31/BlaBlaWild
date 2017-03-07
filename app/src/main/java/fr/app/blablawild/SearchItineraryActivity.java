@@ -11,41 +11,45 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SearchItineraryActivity extends AppCompatActivity {
-    EditText editText7;
-    EditText editText8;
-    EditText editText9;
-    Button button;
+    EditText editTextDeparture;
+    EditText editTextDestination;
+    EditText editTextDated;
+    Button buttonSearch;
     TextView erreur;
     Context context;
     Toast toast;
     int toastDuration;
+
+    public final static String EXTRA_REQUEST = "trip";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_itinerary);
 
-        editText7 = (EditText) findViewById(R.id.editText7);
-        editText8 = (EditText) findViewById(R.id.editText8);
-        editText9 = (EditText) findViewById(R.id.editText9);
-        button = (Button) findViewById(R.id.button);
+        editTextDeparture = (EditText) findViewById(R.id.editTextDeparture);
+        editTextDestination = (EditText) findViewById(R.id.editTextDestination);
+        editTextDated = (EditText) findViewById(R.id.editTextDated);
+        buttonSearch = (Button) findViewById(R.id.buttonSearch);
         erreur = (TextView) findViewById(R.id.erreur);
         context = getApplicationContext();
         toast = Toast.makeText(context, getString(R.string.toast), toastDuration);
         toastDuration = Toast.LENGTH_SHORT;
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                if (editText7.length() != 0 && editText8.length() != 0) {
-                    Intent myIntent = new Intent(SearchItineraryActivity.this, ViewSearchItineraryResultsListActivity.class);
-                    String depart = editText7.getText().toString();
-                    String destination = editText8.getText().toString();
+                if (editTextDeparture.length() != 0 && editTextDestination.length() != 0) {
 
-                    myIntent.putExtra("depart", depart);
-                    myIntent.putExtra("destination", destination);
+                    String depart = editTextDeparture.getText().toString();
+                    String destination = editTextDestination.getText().toString();
+                    String date = editTextDated.getText().toString();
+                    SearchRequestModel trip = new SearchRequestModel(depart, destination, date);
+                    Intent myIntent = new Intent(SearchItineraryActivity.this, ViewSearchItineraryResultsListActivity.class);
+
+                    myIntent.putExtra(SearchItineraryActivity.EXTRA_REQUEST, trip);
                     startActivity(myIntent);
                 }
                 else {

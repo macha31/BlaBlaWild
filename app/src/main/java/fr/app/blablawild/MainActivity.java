@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button buttonGo = (Button) findViewById(R.id.buttonGo);
+        Button buttonItinerary = (Button) findViewById(R.id.buttonItinerary);
 
         buttonGo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +27,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(MainActivity.this, SearchItineraryActivity.class);
                 startActivity(myIntent);
             }
+        });
+
+        buttonItinerary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent myIntent = new Intent(MainActivity.this, SubmitItineraryActivity.class);
+                startActivity(myIntent);
+            }
+
         });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

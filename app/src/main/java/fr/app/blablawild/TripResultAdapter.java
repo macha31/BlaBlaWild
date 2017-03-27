@@ -1,5 +1,6 @@
 package fr.app.blablawild;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,63 +8,39 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.google.firebase.database.Query;
+
 import java.util.ArrayList;
 
 /**
  * Created by M.C on 07/03/2017.
  */
 
-    public class TripResultAdapter extends BaseAdapter {
-        private Context context; //context
-        private ArrayList<TripResultModel> items; //data source of the list adapter
+    public class TripResultAdapter extends FireBaseListAdapter<ItineraryModel>{
 
-        //public constructor
-        public TripResultAdapter(Context context, ArrayList<TripResultModel> items) {
-            this.context = context;
-            this.items = items;
-        }
 
-        @Override
-        public int getCount() {
-            return items.size(); //returns total of items in the list
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return items.get(position); //returns list item at the specified position
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            // inflate the layout for each list row
-            if (convertView == null) {
-                convertView = LayoutInflater.from(context).
-                        inflate(R.layout.trip_item, parent, false);
-            }
-
-            // get current item to be displayed
-            TripResultModel currentItem = (TripResultModel) getItem(position);
-
-            // get the TextView for item name and item description
-            TextView textViewItemName = (TextView)
-                    convertView.findViewById(R.id.textViewName);
-            TextView textViewItemDepart = (TextView)
-                    convertView.findViewById(R.id.textViewDepart);
-            TextView textViewItemPrice = (TextView)
-                    convertView.findViewById(R.id.textViewPrice);
-
-            //sets the text for item name and item description from the current item object
-            textViewItemName.setText(currentItem.getmPrenom());
-            textViewItemDepart.setText(currentItem.getmDate().toString());
-            textViewItemPrice.setText(Integer.toString(currentItem.getmPrix()));
-
-            // returns the view for the current row
-            return convertView;
-        }
+    public TripResultAdapter(Query ref, Activity activity, int layout) {
+        super(ref, ItineraryModel.class, layout, activity);
     }
+
+    /**
+     * Bind an instance of the <code>Chat</code> class to our view. This method is called by <code>FirebaseListAdapter</code>
+     * when there is a data change, and we are given an instance of a View that corresponds to the layout that we passed
+     * to the constructor, as well as a single <code>Chat</code> instance that represents the current data to bind.
+     *
+     * @param view A view instance corresponding to the layout we passed to the constructor.
+     * @param model An instance representing the current state of a chat message
+     */
+    @Override
+    protected void populateView(View view, ItineraryModel model) {
+        // Map a Chat object to an entry in our listview
+        TextView textViewDepart = (TextView) view.findViewById(R.id.textViewDepart);
+        TextView textViewName = (TextView) view.findViewById(R.id.textViewName);
+        TextView textViewPrice = (TextView) view.findViewById(R.id.textViewPrice);
+
+        textViewDepart.setText(String.valueOf(model.getDeparture() + "->" + model.getDestination()));
+        textViewName.setText(String.valueOf(model.getFirstName()));
+        textViewPrice.setText(String.valueOf(model.getPrice()));
+    }
+}
 

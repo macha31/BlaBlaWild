@@ -15,6 +15,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,7 +26,7 @@ public class ViewSearchItineraryResultsListActivity extends AppCompatActivity {
     SearchRequestModel date;
     Intent intent;
     ListView mListViewResults;
-    ListAdapter mResultsAdapter;
+    DatabaseReference dataBase;
 
 
     @Override
@@ -31,7 +34,7 @@ public class ViewSearchItineraryResultsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_search_itinerary_results_list);
 
-        Intent  intent = getIntent();
+        Intent intent = getIntent();
         date =intent.getParcelableExtra(SearchItineraryActivity.EXTRA_REQUEST);
 
         Toast.makeText(this , date.getmDate(), Toast.LENGTH_LONG).show();
@@ -44,21 +47,13 @@ public class ViewSearchItineraryResultsListActivity extends AppCompatActivity {
        // setTitle(depart + " " + getString(R.string.arrow) + " " + destination);
 
         // [...]
+        dataBase = FirebaseDatabase.getInstance().getReference("Itinerary");
+        TripResultAdapter tripResultAdapter = new TripResultAdapter(dataBase, this, R.layout.trip_item);
         mListViewResults = (ListView) findViewById(R.id.driveList);
-        ArrayList<TripResultModel> results = new ArrayList<>();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy-hh:mm");
+        //mResultsAdapter = new TripResultAdapter(this, new TripResultModel());
 
-        try {
-            results.add(new TripResultModel("Bruce", sdf.parse("21/02/2017-15:30"), 15));
-            results.add(new TripResultModel("Clark", sdf.parse("21/02/2017-16:00"), 20));
-            results.add(new TripResultModel("Bary", sdf.parse("21/02/2017-16:30"), 16));
-            results.add(new TripResultModel("Lex", sdf.parse("21/02/2017-17:00"), 40));
-        } catch (ParseException e) {
-        }
-        mResultsAdapter = new TripResultAdapter(this, results);
-
-        mListViewResults.setAdapter(mResultsAdapter);
+        mListViewResults.setAdapter(tripResultAdapter);
 
         // [...]
     }

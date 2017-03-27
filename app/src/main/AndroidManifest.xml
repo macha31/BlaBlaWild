@@ -19,7 +19,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".SearchItineraryActivity" />
-        <activity android:name=".ViewSearchItineraryResultsListActivity"></activity>
+        <activity android:name=".ViewSearchItineraryResultsListActivity" />
+        <activity
+            android:name=".SubmitItineraryActivity"
+            android:label="@string/title_activity_submit_itinerary"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

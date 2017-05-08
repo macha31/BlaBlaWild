@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="fr.app.blablawild.ProfileActivity">
+
+
+    <Button
+        android:text="@string/ButtonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonLogin"
+        android:layout_marginBottom="23dp"
+        android:layout_above="@+id/buttonInscription"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="@string/Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:id="@+id/textViewEmailLogin"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/Email"
+        android:ems="10"
+        android:id="@+id/editTextEmailLogin"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/textViewEmailLogin"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/Password"
+        android:ems="10"
+        android:id="@+id/editTextPasswordLogin"
+        android:layout_above="@+id/buttonLogin"
+        android:layout_alignLeft="@+id/editTextEmailLogin"
+        android:layout_alignStart="@+id/editTextEmailLogin"
+        android:layout_marginBottom="53dp" />
+
+    <TextView
+        android:id="@+id/textViewPasswordLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Password"
+        android:layout_above="@+id/editTextPasswordLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp" />
+
+    <Button
+        android:id="@+id/buttonInscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:text="@string/ButtonSignUp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

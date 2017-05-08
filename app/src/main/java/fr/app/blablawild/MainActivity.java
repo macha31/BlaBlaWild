@@ -10,15 +10,25 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
         Button buttonGo = (Button) findViewById(R.id.buttonGo);
         Button buttonItinerary = (Button) findViewById(R.id.buttonItinerary);
+        Button buttonProfile = (Button) findViewById(R.id.buttonProfile);
 
         buttonGo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
 
+        });
+
+        buttonProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goLogin = new Intent(MainActivity.this, AccountActivity.class);
+                startActivity(goLogin);
+            }
         });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

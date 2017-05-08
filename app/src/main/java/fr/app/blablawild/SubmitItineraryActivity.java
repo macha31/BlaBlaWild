@@ -1,5 +1,7 @@
 package fr.app.blablawild;
 
+import android.content.Intent;
+import android.media.CameraProfile;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,11 +10,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.IOException;
+
+import static android.R.attr.data;
+
 public class SubmitItineraryActivity extends AppCompatActivity {
+
     public Button ButtonPublish;
     public EditText EditTextDeparture;
     public EditText EditTextDestination;
@@ -37,16 +46,13 @@ public class SubmitItineraryActivity extends AppCompatActivity {
         EditTextHoure = (EditText) findViewById(R.id.EditTextHoure);
         ButtonPublish = (Button) findViewById(R.id.ButtonPublish);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference();
 
-        myRef.push().setValue("Hello, World!");
 
         ButtonPublish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("Itinerary");
+               // FirebaseDatabase database = FirebaseDatabase.getInstance();
+                //DatabaseReference myRef = database.getReference("Itinerary");
 
                 if(EditTextDeparture.length() != 0 && EditTextDestination.length() !=0 && EditTextPrice.length() != 0 && EditTextDate.length() != 0 && EditTextHoure.length() != 0) {
                     String LastName = "Devigne";

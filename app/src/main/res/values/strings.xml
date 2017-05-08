@@ -6,7 +6,7 @@
     <string name="date">Date</string>
     <string name="toast">Tu dois remplir le nom et le prénom</string>
     <string name="buttonSearch">Chercher</string>
-    <string name="arrow"> " --> " </string>
+    <string name="arrow"> \' --> \' </string>
     <string name="title_activity_submit_itinerary">Créer un itinéraire</string>
     <string name="publish">Publier</string>
     <string name="price">Prix</string>
@@ -14,4 +14,22 @@
     <string name="go">Aller</string>
     <string name="create">Créer</string>
     <string name="BlaBlaWild">Bla Bla Sauvage</string>
+    <string name="email_empty">remplir champ Email</string>
+    <string name="password_lenght">Minimum 6 caractères!!!!!</string>
+    <string name="password_empty">tu dois renseigner ton mot de passe</string>
+    <string name="email_valid">email valide</string>
+    <string name="pseudo_empty">tu dois renseigner un pseudo</string>
+    <string name="auth_failed">échoué</string>
+    <string name="password_length">6 caractère minimum</string>
+    <string name="signin_failed">connection échoué</string>
+    <string name="Profile">Profil</string>
+    <string name="Email">Email</string>
+    <string name="Name">Name</string>
+    <string name="ButtonDisconnect">Disconnect</string>
+    <string name="ButtonMenu">Menu</string>
+    <string name="ButtonLogin">Login</string>
+    <string name="ButtonSignUp">SignUp</string>
+    <string name="Password">Password</string>
+    <string name="Signin">SignIn</string>
+    <string name="ButtonRegister">Register</string>
 </resources>

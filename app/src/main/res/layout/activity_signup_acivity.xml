@@ -19,6 +19,11 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextUserName"/>
+
     <TextView
         android:id="@+id/textViewPasswordUser"
         android:layout_width="wrap_content"

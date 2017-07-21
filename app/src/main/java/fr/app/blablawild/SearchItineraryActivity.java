@@ -79,7 +79,6 @@ public class SearchItineraryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 if (editTextDeparture.length() != 0 && editTextDestination.length() != 0) {
 
                     String depart = editTextDeparture.getText().toString();

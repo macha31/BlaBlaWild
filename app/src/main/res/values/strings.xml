@@ -32,4 +32,16 @@
     <string name="Password">Password</string>
     <string name="Signin">SignIn</string>
     <string name="ButtonRegister">Register</string>
+    <string name="SelectPicture">Sélectionner une photo</string>
+    <string name="imgError">téléchargement échoué</string>
+    <string name="accueil">Accueil</string>
+    <string name="entrerEmail">Saisir votre email</string>
+    <string name="entrerPassword">Saisir votre mot de passe</string>
+    <string name="signUp">Creer mon compte</string>
+    <string name="already">Deja enregistré, connectez vous ici.</string>
+    <string name="CreationCompte">Creation de compte</string>
+    <string name="userlogin">Connecte toi</string>
+    <string name="signIn">Connexion</string>
+    <string name="unregistered">Pas encore enregistré ? crée un compte ici.</string>
+
 </resources>

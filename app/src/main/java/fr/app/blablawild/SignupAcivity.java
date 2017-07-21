@@ -78,6 +78,7 @@ public class SignupAcivity extends AppCompatActivity implements View.OnClickList
                 .addOnCompleteListener(SignupAcivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         progressDialog.dismiss();
 
                         if (task.isSuccessful()) {
